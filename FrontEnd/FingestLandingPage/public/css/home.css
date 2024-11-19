@@ -1,0 +1,43 @@
+.Background-Image-Home{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-image: url('../StockSnap_H6PSN9BPGZ.jpg');
+    background-size: cover;    
+    background-repeat: no-repeat;   
+    background-position: center;    
+    height: 1250px;
+    width: 100%;
+    clip-path: inset(0 0 35% 0);
+}   
+
+.Background-Image-Home .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Black with 50% opacity */
+    z-index: 1;
+}
+
+.HomeTitle{
+    position: relative;
+    margin-top: 300px;
+    margin-bottom: 0px;
+    font-family: "Raleway", sans-serif;;
+    text-align: center;
+    font-size: 96px;
+    font-weight: bold;
+    z-index: 2;
+}
+.HomeTitle2{
+    position: relative;
+    margin-top: auto;
+    font-family: "Raleway", sans-serif;;
+    text-align: center;
+    font-size: 96px;
+    font-weight:bold;
+    margin-top: 0px;
+    z-index: 2;
+}
