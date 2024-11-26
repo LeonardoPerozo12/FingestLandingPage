@@ -1,0 +1,38 @@
+#Card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid hsl(0, 0%, 80%);
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Color del texto */
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    width: 400px;
+    height: 480px; /* Ajuste automático en base al contenido */
+    padding: 25px; /* Espaciado interno */
+    box-sizing: border-box; 
+    margin-bottom: 100px;
+}
+
+#CardTitle {
+    width: 100%;
+    color: #333;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 34px; /* Ajusta el tamaño */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 10px;
+}
+
+#CardContent {
+    flex-grow: 1; /* Se expande si hay espacio disponible */
+    width: 100%;
+    color: #555; /* Texto gris */
+    font-family: "Raleway", sans-serif;
+    font-size: 20px; /* Tamaño del texto */
+    font-weight: normal ;
+    line-height: 1.5; /* Espaciado entre líneas */
+    text-align: justify; /* Justifica el contenido */
+    padding: 10px;
+}

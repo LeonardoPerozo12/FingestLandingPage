@@ -1,29 +1,40 @@
-.Background-Image-Home{
+.Background-Image-Home {
     display: flex;
     flex-direction: column;
     position: relative;
     background-image: url('../StockSnap_H6PSN9BPGZ.jpg');
-    background-size: cover;    
-    background-repeat: no-repeat;   
-    background-position: center;    
-    height: 1250px;
+    background-size: cover; /* La imagen sigue cubriendo toda el área */
+    background-repeat: no-repeat;
+    background-position: top; /* Ancla la imagen en la parte superior */
+    height: 75vh; /* O el valor deseado */
     width: 100%;
-    clip-path: inset(0 0 35% 0);
-}   
+    padding-top: 5%;
+}
 
-.Background-Image-Home .overlay {
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* Black with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.3); /* Ajusta opacidad si es necesario */
     z-index: 1;
+}
+
+.HomeTitle, .HomeTitle2 {
+    position: relative;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    font-size: 48px; /* Ajusta tamaño si es necesario */
+    font-weight: bold;
+    color: white;
+    z-index: 2;
 }
 
 .HomeTitle{
     position: relative;
-    margin-top: 300px;
+    margin-top: 200px;
     margin-bottom: 0px;
     font-family: "Raleway", sans-serif;;
     text-align: center;
