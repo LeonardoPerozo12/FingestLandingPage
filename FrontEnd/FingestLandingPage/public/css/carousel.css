@@ -1,0 +1,23 @@
+.carousel-container {
+    width: 100%;
+    max-width: 1200px; /* Ajusta según tu diseño */
+    overflow: hidden; /* Oculta contenido que no cabe */
+    position: relative;
+    margin: auto;
+    margin-bottom: 200px;
+}
+
+.carousel-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px; /* Espacio entre tarjetas */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    max-width: 400px; /* Tamaño de las tarjetas */
+    height: 400px;
+    margin-bottom: 100px;
+}
+

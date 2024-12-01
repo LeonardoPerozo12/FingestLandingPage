@@ -3,6 +3,12 @@ import './../../public/LOGO FINGEST RISK CONSULTAN-01 2 (1).jpg';
 import './../../public/css/header.css'; 
 
 function Header() {
+    const scrollToSection = (id) => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
     <header className="header">
         <h1 className="header-title">
