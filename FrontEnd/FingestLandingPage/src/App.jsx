@@ -1,26 +1,49 @@
-import React, { useEffect } from 'react';
-import Header from './Components/Header';
-import Home from './Pages/HomePage';
-import Servicios from './Pages/ServiciosPage';
-import Nosotros from './Pages/NosotrosPage';
+import React, { useRef, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import Header from './components/Header';
+import Home from './Pages/HomePage';
+import Servicios from './Pages/ServiciosPage';
+import Nosotros from './Pages/NosotrosPage';
+
 function App() {
+    const homeRef = useRef(null);
+    const serviciosRef = useRef(null);
+    const nosotrosRef = useRef(null);
+    const agendarCitaRef = useRef(null);
+
     useEffect(() => {
         AOS.init({
-            duration: 1200, // Duración de las animaciones
-            once: false,     // Las animaciones se ejecutan solo una vez
-            mirror: true,  // Evita repetir la animación al hacer scroll hacia arriba
+            duration: 1200,
+            once: false,
+            mirror: true,
         });
-    }, []); // Solo se ejecuta una vez al montar el componente
+    }, []);
+
+    const scrollToSection = (elementRef) => {
+        elementRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
 
     return (
         <div>
-            <Header />
-            <Home />
-            <Servicios />
-            <Nosotros/>
+            <Header 
+                onHomeClick={() => scrollToSection(homeRef)}
+                onServiciosClick={() => scrollToSection(serviciosRef)}
+                onNosotrosClick={() => scrollToSection(nosotrosRef)}
+                onAgendarCitaClick={() => scrollToSection(agendarCitaRef)}
+            />
+            <main>
+                <section id="Home" ref={homeRef}>
+                    <Home />
+                </section>
+                <section id="Servicios" ref={serviciosRef}>
+                    <Servicios />
+                </section>
+                <section id="Nosotros" ref={nosotrosRef}>
+                    <Nosotros />
+                </section>
+            </main>
         </div>
     );
 }

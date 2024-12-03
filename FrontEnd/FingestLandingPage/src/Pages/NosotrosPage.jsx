@@ -1,19 +1,19 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { forwardRef, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../public/css/nosotros.css";
 
-function Nosotros() {
+const Nosotros = forwardRef((props, ref) => {
     useEffect(() => {
-    AOS.init({
-        duration: 1200,
-        once: false,
-        mirror: true,
-    });
-        }, []);
+        AOS.init({
+            duration: 1200,
+            once: false,
+            mirror: true,
+        });
+    }, []);
+
     return (
-    <section id="Nosotros">
+    <section ref={ref} className="Nosotros">
         <h1 id="NosotrosTitle">¿Quiénes Somos?</h1>
         <p id='NosotrosContent'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -29,6 +29,6 @@ function Nosotros() {
         </div>
     </section>
     );
-}
+});
 
 export default Nosotros;

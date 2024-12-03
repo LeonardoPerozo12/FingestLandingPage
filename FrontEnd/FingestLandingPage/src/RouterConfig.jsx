@@ -6,7 +6,9 @@ import Home from "./Pages/HomePage"; // Asegúrate de que el path sea correcto
 const RouterConfig = () => {
     return (
         <Routes>
-            <Route path="/" element={<Home />} /> {/* Ruta para Home */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/servicios" element={<ServiciosPage />} />
+            <Route path="/nosotros" element={<NosotrosPage />} />
         </Routes>
     );
 };
