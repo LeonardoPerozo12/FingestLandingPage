@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Header from './Components/Header';
 import Home from './Pages/HomePage';
 import Servicios from './Pages/ServiciosPage';
+import Nosotros from './Pages/NosotrosPage';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -19,6 +20,7 @@ function App() {
             <Header />
             <Home />
             <Servicios />
+            <Nosotros/>
         </div>
     );
 }

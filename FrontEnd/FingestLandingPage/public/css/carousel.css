@@ -3,8 +3,7 @@
     max-width: 1200px; /* Ajusta según tu diseño */
     overflow: hidden; /* Oculta contenido que no cabe */
     position: relative;
-    margin: auto;
-    margin-bottom: 200px;
+    margin: auto;   
 }
 
 .carousel-row {
