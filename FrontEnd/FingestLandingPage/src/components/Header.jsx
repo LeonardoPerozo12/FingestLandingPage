@@ -11,13 +11,12 @@ function Header({
     return (
         <header className="header">
             <h1 className="header-title">
-                <a href="#" onClick={(e) => { e.preventDefault(); onHomeClick(); }}>
-                    <img
-                        src={logoImage}
-                        alt="Logo Fingest"
-                        className="logo"
-                    />
-                </a>
+                <img
+                    src="./../../public/LOGO FINGEST RISK CONSULTAN-01 2 (1).jpg"
+                    alt="Logo Fingest"
+                    className="logo"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                />
             </h1>
             <nav className="nav">
                 <ul className="nav-list">
