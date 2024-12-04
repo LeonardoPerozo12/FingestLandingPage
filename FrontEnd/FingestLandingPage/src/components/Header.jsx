@@ -3,7 +3,6 @@ import logoImage from './../../public/LOGO FINGEST RISK CONSULTAN-01 2 (1).jpg';
 import './../../public/css/header.css'; 
 
 function Header({ 
-    onHomeClick, 
     onServiciosClick, 
     onNosotrosClick,
     onAgendarCitaClick 

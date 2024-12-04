@@ -22,9 +22,17 @@ function App() {
     }, []);
 
     const scrollToSection = (elementRef) => {
-        elementRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (!elementRef.current) return;
+        
+        const headerOffset = 80; // adjust based on your header height
+        const elementPosition = elementRef.current.offsetTop;
+        const offsetPosition = elementPosition - headerOffset;
+    
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
     };
-
     return (
         <div>
             <Header 
