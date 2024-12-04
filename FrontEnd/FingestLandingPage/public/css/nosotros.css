@@ -1,35 +1,88 @@
+/* Estilo general */
 .Nosotros {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     background-color: #fdfdfd;
+    padding: 2rem 0;
 }
 
-#NosotrosTitle{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
+#NosotrosTitle {
     font-family: "Raleway", sans-serif;
     text-align: center;
     font-size: 64px;
     font-weight: bold;
-    margin-top: 110px;
-    margin-bottom: 80px;
-    width: 80%;
-    z-index: 2;
+    margin: 0;
     color: #fdfdfd;
     background-color: #091014;
     width: 100%;
     height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#NosotrosContent{
+
+#NosotrosContent {
     font-family: "Raleway", sans-serif;
     font-size: 32px;
-    text-align: left ;
+    text-align: left;
     color: #232121;
-    margin-right: 150px;
-    margin-left: 150px;
-    margin-bottom: 50vh;
+    margin: 2rem 150px 4rem 150px;
     font-weight: 500;
+    line-height: 1.5;
+}
+
+.counter-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    width: 80%;
+}
+
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    gap: 5px;
+}
+
+.counter-item {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.counter-item h1 {
+    margin: 0px;
+}
+
+.counter-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #091014;
+}
+
+.counter-label {
+    font-size: 1.2em;
+    color: #232121;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    text-align: left;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    width: 300px;
+    height: 200px;
+    color: #ccc;
 }
