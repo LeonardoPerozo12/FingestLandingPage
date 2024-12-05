@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import DownButton from '../components/DownButton';
 import 'aos/dist/aos.css';
 import '../../public/css/home.css';
 
@@ -13,7 +12,6 @@ const Home = forwardRef((props, ref) => {
                 Aseguramos tu inversión.
             </h1>
             <div className="overlay"></div>
-            <DownButton />
         </section>
     );
 });

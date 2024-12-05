@@ -6,7 +6,7 @@
     background-size: cover; /* La imagen sigue cubriendo toda el área */
     background-repeat: no-repeat;
     background-position: top; /* Ancla la imagen en la parte superior */
-    height: 75vh; /* O el valor deseado */
+    height: 85vh; /* O el valor deseado */
     width: 100%;
     padding-top: 5%;
 }
