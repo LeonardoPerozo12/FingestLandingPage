@@ -1,34 +1,29 @@
+/* Estilos generales */
 .Servicios {
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        background-color: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fdfdfd;
 }
 
-#CardsCarousel{
+#CardsCarousel {
     display: flex;
     flex-direction: row;
-    gap: 100px;
-
+    gap: 5rem; /* Usar rem para mayor flexibilidad */
 }
 
 #ServiciosTitle {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Alinea el contenido hacia la izquierda */
+    justify-content: center;
     align-content: center;
     font-family: "Raleway", sans-serif;
     text-align: center;
-    font-size: 64px;
+    font-size: 3.5rem; /* Usar rem para una escala más flexible */
     font-weight: bold;
-    margin-top: 100px;
-    margin-bottom: 60px;
-    width: 80%; /* Ajusta según el tamaño deseado */
+    margin-top: 6.5vh;
+    margin-bottom: 6vh;
+    width: 80%;
     z-index: 2;
     color: black;
-}
-#ServiciosText{
-    color: black;
-    font-family: "Raleway", sans-serif;;
-    font-size: 26px;
 }

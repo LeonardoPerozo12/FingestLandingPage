@@ -1,22 +1,24 @@
+/* Contenedor del carrusel */
 .carousel-container {
     width: 100%;
-    max-width: 1200px; /* Ajusta según tu diseño */
+    max-width: 1000px; /* Ajusta según tu diseño */
     overflow: hidden; /* Oculta contenido que no cabe */
     position: relative;
-    margin: auto;   
+    margin: auto;
 }
 
+/* Fila de los items del carrusel */
 .carousel-row {
     display: flex;
     flex-wrap: nowrap;
-    gap: 20px; /* Espacio entre tarjetas */
+    gap: 15px; /* Reducción del espacio entre tarjetas */
     transition: transform 0.5s ease-in-out;
 }
 
+/* Elemento individual del carrusel */
 .carousel-item {
     flex: 0 0 auto;
-    max-width: 400px; /* Tamaño de las tarjetas */
-    height: 400px;
-    margin-bottom: 60px;
+    max-width: 300px; /* Tamaño reducido de las tarjetas */
+    height: 350px; /* Altura ajustada */
+    margin-bottom: 40px; /* Espacio reducido abajo */
 }
-

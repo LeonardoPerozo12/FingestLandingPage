@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from './../../public/LOGO FINGEST RISK CONSULTAN-01 2 (1).jpg';
+import logoImage from '../assets/FingestLogo - Landscape.svg';
 import './../../public/css/header.css'; 
 
 function Header({ 
@@ -11,7 +11,7 @@ function Header({
         <header className="header">
             <h1 className="header-title">
                 <img
-                    src="./../../public/LOGO FINGEST RISK CONSULTAN-01 2 (1).jpg"
+                    src={logoImage} // Usamos la importación aquí
                     alt="Logo Fingest"
                     className="logo"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

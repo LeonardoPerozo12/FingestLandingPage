@@ -1,3 +1,17 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
 .header {
   font-family: "Raleway", sans-serif;
   background-color: #fdfdfd;
@@ -9,12 +23,13 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 .header-title {
-
   margin: 0;
   margin-left: 50px;
+  font-size: 2rem; /* Ajusta según el diseño */
 }
 
 .nav {
@@ -24,39 +39,62 @@
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 100px;
+  gap: 100px; /* Espacio entre enlaces */
   flex-direction: row;
   margin: 0;
   padding: 0;
   margin-right: 95px;
+  justify-content: space-evenly; /* Distribución uniforme */
 }
 
 .nav-item {
   font-weight: bold;
-  font-size: 36;
-  gap: 102px;
+  font-size: 1.5rem;
 }
 
 .nav-link {
   color: #333;
   text-decoration: none;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 1.8rem;
+  transition: color 0.3s ease-in-out, transform 0.2s ease; /* Efectos suaves */
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  width: 100%;
+.nav-link:hover {
+  color: #9b1818;
+  transform: scale(1.05); /* Aumenta ligeramente al pasar el mouse */
 }
 
 .logo {
-  width: 256px;
-  height: 81px;
+  max-width: 180px; /* Controla el tamaño del logo */
+  max-height: 80px;
+  object-fit: contain; /* Mantiene las proporciones */
 }
-.nav-link:hover {
-  text-decoration: none;
-  color: #9b1818;
-  transition: all 0.25s;
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Cambia la disposición a columna */
+    align-items: flex-start;
+    padding: 1rem 2rem;
+  }
+
+  .header-title {
+    margin-left: 0;
+    font-size: 1.5rem; /* Reduce tamaño del título */
+  }
+
+  .nav-list {
+    flex-direction: column; /* Cambia enlaces a columna */
+    gap: 1rem;
+    margin-right: 0;
+  }
+
+  .nav-item {
+    font-size: 1rem; /* Reduce tamaño en pantallas pequeñas */
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
 }

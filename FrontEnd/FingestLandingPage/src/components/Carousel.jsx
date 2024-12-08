@@ -19,13 +19,15 @@ const Carousel = () => {
     useEffect(() => {
         const carousel = carouselRef.current;
 
-        // Crear y manejar el intervalo
         const startInfiniteScroll = () => {
             scrollIntervalRef.current = setInterval(() => {
-                if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
-                    carousel.scrollLeft = 0; // Reiniciar cuando llega al final
-                } else {
-                    carousel.scrollLeft += 2; // Avance suave
+                if (carousel) {
+                    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth; // El total de desplazamiento permitido
+                    if (carousel.scrollLeft >= maxScrollLeft) {
+                        carousel.scrollLeft = 0; // Reiniciar cuando llega al final
+                    } else {
+                        carousel.scrollLeft += 2; // Avance suave
+                    }
                 }
             }, 16); // Aproximadamente 60fps
         };

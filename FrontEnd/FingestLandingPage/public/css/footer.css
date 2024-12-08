@@ -1,5 +1,5 @@
 /* General Reset */
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -23,17 +23,14 @@
     width: 100%;
     max-width: 1650px; /* Define un ancho máximo para el contenido */
     margin: 0 auto; /* Centra el footer horizontalmente */
+    padding: 0 5%; /* Asegura que el contenido del footer no quede pegado a los bordes */
 }
 
-/* Logo */
+
 .footer-logo {
-    margin: 0;
-}
-
-.footer-logo-img {
-    max-width: 100%; /* Asegura que la imagen sea responsiva */
-    height: auto;
-    display: block; /* Elimina espacios blancos extra */
+    width: 150px;
+    height: 70px;
+    margin-left: 1.5vh;
 }
 
 /* Links */
@@ -48,11 +45,33 @@
 .footer-link {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1rem; /* Usar rem para tamaño relativo */
     font-weight: bold;
 }
 
 .footer-link:hover {
     color: #f0a500; /* Color de hover para los enlaces */
     text-decoration: none;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los elementos verticalmente */
+    }
+
+    .footer-links {
+        flex-direction: column; /* Enlaces en columna */
+        gap: 20px; /* Menor separación entre los enlaces */
+    }
+
+    .footer-logo {
+        margin-left: 0; /* Eliminar margen en pantallas pequeñas */
+        margin-bottom: 10px; /* Añadir espacio debajo del logo */
+    }
+
+    .footer-link {
+        font-size: 1rem; /* Ajustar tamaño de fuente en pantallas pequeñas */
+    }
 }

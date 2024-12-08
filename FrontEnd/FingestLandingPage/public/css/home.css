@@ -3,12 +3,14 @@
     flex-direction: column;
     position: relative;
     background-image: url('../StockSnap_H6PSN9BPGZ.jpg');
-    background-size: cover; /* La imagen sigue cubriendo toda el área */
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: top; /* Ancla la imagen en la parte superior */
-    height: 85vh; /* O el valor deseado */
+    background-position: center;
+    height: 115vh;
     width: 100%;
     padding-top: 5%;
+    clip-path: inset(0 0 30vh 0); /* Recorta la parte inferior */
+    margin-bottom: -30vh;
 }
 
 .overlay {
@@ -17,7 +19,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* Ajusta opacidad si es necesario */
+    background-color: rgba(0, 0, 0, 0.3); /* Oscurece la imagen */
     z-index: 1;
 }
 
@@ -26,29 +28,31 @@
     margin: 0;
     font-family: "Raleway", sans-serif;
     text-align: center;
-    font-size: 48px; /* Ajusta tamaño si es necesario */
+    font-size: clamp(2rem, 5vw, 6rem); /* Escalable */
     font-weight: bold;
     color: white;
     z-index: 2;
 }
 
-.HomeTitle{
-    position: relative;
-    margin-top: 200px;
-    margin-bottom: 0px;
-    font-family: "Raleway", sans-serif;;
-    text-align: center;
-    font-size: 96px;
-    font-weight: bold;
-    z-index: 2;
+.HomeTitle {
+    margin-top: 10%; /* Ajuste dinámico */
 }
-.HomeTitle2{
-    position: relative;
-    margin-top: auto;
-    font-family: "Raleway", sans-serif;;
-    text-align: center;
-    font-size: 96px;
-    font-weight:bold;
-    margin-top: 0px;
-    z-index: 2;
+
+.HomeTitle2 {
+    margin-top: 2%; /* Menor espacio entre títulos */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .Background-Image-Home {
+        height: 70vh; /* Reduce altura en pantallas pequeñas */
+    }
+
+    .HomeTitle, .HomeTitle2 {
+        font-size: clamp(1.5rem, 4vw, 3rem); /* Ajusta fuente */
+    }
+
+    .HomeTitle {
+        margin-top: 15%;
+    }
 }

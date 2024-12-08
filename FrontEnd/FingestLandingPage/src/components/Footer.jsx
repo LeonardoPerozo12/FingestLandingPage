@@ -1,20 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImage from './../../public/LOGO FINGEST RISK CONSULTAN-01 2 (1).jpg'; 
+import logoImage from '../assets/FingestLogo - Vertical.svg'; 
 import '../../public/css/footer.css';
 
 function Footer() {
     return (
     <footer className="footer">
         <div className="footer-content">
-        <h1 className="footer-logo">
         <img 
-            src="./../../public/LOGO FINGEST RISK CONSULTAN-01 2 (1).jpg"
+            src={logoImage}
             alt="Logo Fingest"
-            className="logo"
+            className="footer-logo"
         />
-
-        </h1>
         <ul className="footer-links">
         <li className="footer-link-item">
             <Link to="/about" className="footer-link">Contactanos: example@gmail.com</Link>

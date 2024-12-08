@@ -16,7 +16,6 @@ return (
     <section ref={ref} className="Nosotros">
     <span id="NosotrosTitleFringe">
         <h1 id="NosotrosTitle" data-aos="fade-down">
-        {" "}
         ¿Quiénes Somos?
         </h1>
     </span>
@@ -33,13 +32,13 @@ return (
 	<div className="counter-section">
         <div className="counter-container">
 		<div className="counter-item">
-            <h1 className="counter-value" data-aos="fade-down"  style={{ fontSize: "100px" }}>
+            <h1 className="counter-value" data-aos="fade-down"  style={{ fontSize: "80px" }}>
 				10
             </h1>
             <h2
 				className="counter-label"
 				style={{
-					fontSize: "36px",
+					fontSize: "32px",
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "flex-start",
@@ -51,10 +50,10 @@ return (
 		</div>
 
 		<div className="counter-item">
-            <h1 className="counter-value" data-aos="fade-down" data-aos-delay="200" style={{ fontSize: "100px" }}>
+            <h1 className="counter-value" data-aos="fade-down" data-aos-delay="100" style={{ fontSize: "80px" }}>
 				+100
             </h1>
-            <h2 className="counter-label" style={{ fontSize: "36px" }}>
+            <h2 className="counter-label" style={{ fontSize: "32px" }}>
 				Clientes <br />
 				Satisfechos
             </h2>
