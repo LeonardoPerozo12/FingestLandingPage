@@ -45,7 +45,7 @@
 /* Ajustes responsivos */
 @media (max-width: 768px) {
     .Background-Image-Home {
-        height: 70vh; /* Reduce altura en pantallas pequeñas */
+        height: 90vh; /* Reduce altura en pantallas pequeñas */
     }
 
     .HomeTitle, .HomeTitle2 {
