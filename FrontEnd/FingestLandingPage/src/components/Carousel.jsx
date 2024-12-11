@@ -4,16 +4,18 @@ import '../../public/css/Carousel.css';
 
 const Carousel = () => {
     const carouselRef = useRef(null);
-    const scrollIntervalRef = useRef(null); // Usar useRef para guardar el intervalo
+    const scrollIntervalRef = useRef(null);
     const [isPaused, setIsPaused] = useState(false);
 
     const cardsData = [
         { title: 'Primera Tarjeta', content: 'Contenido de la primera tarjeta.' },
         { title: 'Segunda Tarjeta', content: 'Contenido de la segunda tarjeta.' },
         { title: 'Tercera Tarjeta', content: 'Contenido de la tercera tarjeta.' },
+        { title: 'Cuarta Tarjeta', content: 'Contenido de la cuarta tarjeta.' },
+        { title: 'Quinta Tarjeta', content: 'Contenido de la quinta tarjeta.' },
     ];
 
-    // Duplicar las tarjetas para efecto infinito
+    // Crear un arreglo duplicado para el efecto de bucle
     const duplicatedCards = [...cardsData, ...cardsData];
 
     useEffect(() => {
@@ -22,44 +24,39 @@ const Carousel = () => {
         const startInfiniteScroll = () => {
             scrollIntervalRef.current = setInterval(() => {
                 if (carousel) {
-                    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth; // El total de desplazamiento permitido
-                    if (carousel.scrollLeft >= maxScrollLeft) {
-                        carousel.scrollLeft = 0; // Reiniciar cuando llega al final
-                    } else {
-                        carousel.scrollLeft += 2; // Avance suave
+                    // Desplazarse automáticamente
+                    carousel.scrollLeft += 2;
+
+                    // Reiniciar suavemente cuando alcance la mitad
+                    if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+                        carousel.scrollLeft = 0; // Reinicia el scroll
                     }
                 }
-            }, 16); // Aproximadamente 60fps
+            }, 24); // Aproximadamente 60fps
         };
 
-        // Si el carrusel está en pausa, detén el desplazamiento
-        if (isPaused) {
-            clearInterval(scrollIntervalRef.current); // Detener el intervalo cuando está pausado
-        } else {
-            startInfiniteScroll(); // Iniciar el intervalo si no está pausado
+        if (!isPaused) {
+            startInfiniteScroll(); // Inicia el scroll automático
         }
 
-        // Limpia el intervalo cuando el componente se desmonta o se pausa
-        return () => clearInterval(scrollIntervalRef.current);
+        return () => clearInterval(scrollIntervalRef.current); // Limpia el intervalo al desmontar
+    }, [isPaused]);
 
-    }, [isPaused]); // Solo dependemos de isPaused
-
-    // Función para manejar la pausa
     const handlePause = () => {
-        setIsPaused(true); // Pausar el carrusel
+        setIsPaused(true);
+        clearInterval(scrollIntervalRef.current); // Detener el intervalo
     };
 
-    // Función para manejar la reanudación
     const handleResume = () => {
-        setIsPaused(false); // Reanudar el carrusel
+        setIsPaused(false);
     };
 
     return (
         <div className="carousel-container" ref={carouselRef}>
-            <div 
-                className="carousel-row" 
-                onMouseEnter={handlePause} // Pausar cuando el mouse entra
-                onMouseLeave={handleResume} // Reanudar cuando el mouse sale
+            <div
+                className="carousel-row"
+                onMouseEnter={handlePause}
+                onMouseLeave={handleResume}
             >
                 {duplicatedCards.map((card, index) => (
                     <div className="carousel-item" key={index}>

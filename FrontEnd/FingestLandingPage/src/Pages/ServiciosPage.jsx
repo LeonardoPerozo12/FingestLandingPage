@@ -9,7 +9,6 @@ const Servicios = forwardRef((props, ref) => {
         <Cards title="Primera Tarjeta" content="Este es el contenido de la primera tarjeta." />,
         <Cards title="Segunda Tarjeta" content="Este es el contenido de la segunda tarjeta." />,
         <Cards title="Tercera Tarjeta" content="Este es el contenido de la tercera tarjeta." />,
-        <Cards title="Cuarta Tarjeta" content="Este es el contenido de la cuarta tarjeta." />,
     ];
 
     return (
