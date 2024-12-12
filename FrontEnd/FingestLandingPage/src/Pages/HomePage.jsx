@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import 'aos/dist/aos.css';
-import '../../public/css/home.css';
+import '../../css/home.css';
 
 const Home = forwardRef((props, ref) => {
     return (

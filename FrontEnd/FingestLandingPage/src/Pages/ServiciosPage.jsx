@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import Cards from '../components/Cards';
 import Carousel from '../components/Carousel';
 import 'aos/dist/aos.css';
-import '../../public/css/servicios.css';
+import '../../css/servicios.css';
 
 const Servicios = forwardRef((props, ref) => {
     const tarjetas = [

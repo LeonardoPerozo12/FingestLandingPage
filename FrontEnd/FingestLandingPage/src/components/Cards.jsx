@@ -1,4 +1,4 @@
-import '../../public/css/Cards.css'
+import '../../css/Cards.css'
 
 function Cards({ title, content }) {
     return (

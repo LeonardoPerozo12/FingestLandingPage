@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "../../public/css/nosotros.css";
+import "../../css/nosotros.css";
 
 const Nosotros = forwardRef((props, ref) => {
 useEffect(() => {

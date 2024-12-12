@@ -1,16 +1,32 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "./Pages/HomePage"; // Asegúrate de que el path sea correcto
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Pages/HomePage';
+import Servicios from './Pages/ServiciosPage';
+import Nosotros from './Pages/NosotrosPage';
+import AgendarCita from './Pages/AgendarCita';
 
-// Configuración del enrutamiento
-const RouterConfig = () => {
+function RouterConfig({ homeRef, serviciosRef, nosotrosRef }) {
     return (
         <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/servicios" element={<ServiciosPage />} />
-            <Route path="/nosotros" element={<NosotrosPage />} />
+            <Route
+                path="/"
+                element={
+                    <main>
+                        <section id="Home" ref={homeRef}>
+                            <Home />
+                        </section>
+                        <section id="Servicios" ref={serviciosRef}>
+                            <Servicios />
+                        </section>
+                        <section id="Nosotros" ref={nosotrosRef}>
+                            <Nosotros />
+                        </section>
+                    </main>
+                }
+            />
+            <Route path="/agendar-cita" element={<AgendarCita />} />
         </Routes>
     );
-};
+}
 
 export default RouterConfig;
