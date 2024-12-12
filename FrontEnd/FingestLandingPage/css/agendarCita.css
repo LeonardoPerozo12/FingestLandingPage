@@ -37,6 +37,8 @@ body{
     border-radius: 5px;
     border-color: black;
     color: #000;
-
 }
 
+#root {
+    width: 100%;
+}
