@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #fdfdfd;
-    padding: 2rem 0;
+    padding: 2rem 0;;
 }
 
 #NosotrosTitleFringe {
@@ -25,6 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 #NosotrosContent {
@@ -44,7 +45,8 @@
     gap: 3rem; /* Increase spacing for larger screens */
     margin-top: 1rem;
     margin-bottom: 5rem;
-    width: 80%;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .counter-container {
@@ -84,29 +86,8 @@
     align-items: center;
     justify-content: center;
     border: 2px dashed #ccc;
-    width: 90%; /* Ajustado para pantallas más pequeñas */
-    height: auto; /* Ajuste automático de la altura */
+    width: auto;
+    height: auto;
     color: #ccc;
 }
 
-/* Media query para pantallas más pequeñas */
-@media (max-width: 768px) {
-    #NosotrosContent {
-        font-size: 1.8rem; /* Reducir tamaño de fuente en pantallas más pequeñas */
-        margin: 2rem 5vw 4rem 5vw; /* Márgenes más pequeños con vw */
-    }
-
-    .counter-section {
-        flex-direction: column;
-        width: 100%; /* Asegura que los contadores se ajusten en pantallas pequeñas */
-    }
-
-    .counter-value {
-        font-size: 5vw; /* Aumenta la adaptación en pantallas más pequeñas */
-    }
-
-    .image-container {
-        width: 90%; /* Ajustar el tamaño para pantallas más pequeñas */
-        height: auto; /* Ajustar altura automáticamente */
-    }
-}
