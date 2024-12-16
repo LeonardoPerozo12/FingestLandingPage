@@ -22,6 +22,9 @@
     font-size: clamp(2.5rem, 5vw, 4rem); /* Scalable title font size */
     font-weight: bold;
     color: #fdfdfd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
@@ -43,7 +46,7 @@
     margin-top: 1rem;
     margin-bottom: 5rem;
     width: 100%;
-    flex-wrap: wrap; /* Enable wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
 .counter-container {
@@ -85,33 +88,6 @@
     border: 2px dashed #ccc;
     width: auto;
     height: auto;
-    padding: 1rem; /* Add padding for better spacing */
     color: #ccc;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-    #NosotrosContent {
-        margin: 1.5rem 7vw; /* Adjust margins for tablets */
-        font-size: clamp(1rem, 4vw, 1.3rem); /* Slightly smaller content font */
-    }
-
-    .counter-section {
-        gap: 2rem; /* Reduce gap for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    #NosotrosContent {
-        margin: 1rem 4vw; /* Narrower margins for mobile devices */
-        font-size: clamp(0.9rem, 4vw, 1rem); /* Smaller content font */
-    }
-
-    .counter-item h1 {
-        font-size: clamp(1.5rem, 4vw, 2rem); /* Reduce counter size */
-    }
-
-    .counter-label {
-        font-size: clamp(0.9rem, 3vw, 1rem); /* Adjust label font size */
-    }
-}

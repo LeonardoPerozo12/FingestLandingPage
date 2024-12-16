@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Cards from './Cards'; // Tu componente de tarjetas
-import '../../css/carousel.css';
+import '../../css/Carousel.css';
 
 const Carousel = () => {
     const carouselRef = useRef(null);
@@ -20,25 +20,26 @@ const Carousel = () => {
 
     useEffect(() => {
         const carousel = carouselRef.current;
-    
+
         const startInfiniteScroll = () => {
             scrollIntervalRef.current = setInterval(() => {
                 if (carousel) {
+                    // Desplazarse automáticamente
                     carousel.scrollLeft += 2;
-    
-                    const firstSetWidth = carousel.scrollWidth / 2;
-                    if (carousel.scrollLeft >= firstSetWidth) {
-                        carousel.scrollLeft = carousel.scrollLeft - firstSetWidth;
+
+                    // Reiniciar suavemente cuando alcance la mitad
+                    if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+                        carousel.scrollLeft = 0; // Reinicia el scroll
                     }
                 }
-            }, 16);
+            }, 24);
         };
-    
+
         if (!isPaused) {
-            startInfiniteScroll();
+            startInfiniteScroll(); // Inicia el scroll automático
         }
-    
-        return () => clearInterval(scrollIntervalRef.current);
+
+        return () => clearInterval(scrollIntervalRef.current); // Limpia el intervalo al desmontar
     }, [isPaused]);
 
     const handlePause = () => {
