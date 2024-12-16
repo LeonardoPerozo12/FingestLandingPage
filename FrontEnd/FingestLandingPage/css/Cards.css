@@ -65,34 +65,38 @@
     padding: 10px;
 }
 
-/* Responsive Breakpoints */
 @media screen and (max-width: 768px) {
     .Card {
-        max-width: 250px;
-        height: 300px;
+        max-width: 200px;
+        height: 250px;
     }
-
     .CardTitle {
         font-size: 24px;
     }
-
     .CardContent {
         font-size: 14px;
     }
+    .Card:hover .CardTitle {
+        position: static;
+        top: 0%;
+        font-size: 20px;
+    }
 }
-
 @media screen and (max-width: 480px) {
     .Card {
         max-width: 220px;
         height: 280px;
     }
-
     .CardTitle {
         font-size: 20px;
     }
-
     .CardContent {
         font-size: 12px;
         padding: 5px;
+    }
+    .Card:hover .CardTitle {
+        position: static;
+        top: 0%;
+        font-size: 20px;
     }
 }

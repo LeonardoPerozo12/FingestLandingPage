@@ -41,3 +41,15 @@
 .HomeTitle2 {
     margin-top: 2%; /* Menor espacio entre títulos */
 }
+
+@media (max-width: 768px) {
+    .Background-Image-Home {
+        height: 90vh; /* Reduce altura en pantallas pequeñas */
+    }
+    .HomeTitle, .HomeTitle2 {
+        font-size: clamp(1.5rem, 4vw, 3rem); /* Ajusta fuente */
+    }
+    .HomeTitle {
+        margin-top: 40%;
+    }
+}
