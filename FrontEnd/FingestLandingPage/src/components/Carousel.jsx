@@ -32,7 +32,7 @@ const Carousel = () => {
                         carousel.scrollLeft = 0; // Reinicia el scroll
                     }
                 }
-            }, 24);
+            }, 24); // Aproximadamente 60fps
         };
 
         if (!isPaused) {

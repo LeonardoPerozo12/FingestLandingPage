@@ -13,7 +13,6 @@
     flex-wrap: nowrap;
     gap: 15px; /* Reducción del espacio entre tarjetas */
     transition: transform 0.5s ease-in-out;
-    will-change: transform;
 }
 
 /* Elemento individual del carrusel */
