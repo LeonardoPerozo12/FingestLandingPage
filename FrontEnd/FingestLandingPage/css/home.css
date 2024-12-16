@@ -42,17 +42,35 @@
     margin-top: 2%; /* Menor espacio entre títulos */
 }
 
-/* Ajustes responsivos */
+/* Add media queries for smaller screens */
 @media (max-width: 768px) {
     .Background-Image-Home {
-        height: 90vh; /* Reduce altura en pantallas pequeñas */
-    }
-
-    .HomeTitle, .HomeTitle2 {
-        font-size: clamp(1.5rem, 4vw, 3rem); /* Ajusta fuente */
+        height: 90vh; /* Reduce height for smaller devices */
+        clip-path: inset(0 0 20vh 0); /* Adjust cropping */
+        margin-bottom: -20vh;
     }
 
     .HomeTitle {
-        margin-top: 15%;
+        margin-top: 10%; /* Increase spacing for better readability */
+    }
+
+    .HomeTitle2 {
+        font-size: clamp(1.2rem, 3vw, 3.5rem); /* Smaller font on small devices */  
+    }
+}
+
+@media (max-width: 480px) {
+    .Background-Image-Home {
+        padding-top: 10%; /* Adjust padding */
+        height: 85vh; /* Further reduce height */
+    }
+
+    .HomeTitle {
+        font-size: clamp(1.2rem, 4vw, 3rem); /* Further reduce font size */
+        margin-top: 40%;
+    }
+
+    .HomeTitle2 {
+        margin-top: 5%;
     }
 }

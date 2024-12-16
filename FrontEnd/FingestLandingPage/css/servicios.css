@@ -4,12 +4,16 @@
     flex-direction: column;
     align-items: center;
     background-color: #fdfdfd;
+    padding: 2rem; /* Add padding for better spacing */
 }
 
 #CardsCarousel {
     display: flex;
     flex-direction: row;
-    gap: 5rem; /* Usar rem para mayor flexibilidad */
+    gap: 3rem; /* Adjust gap for smaller screens */
+    flex-wrap: wrap; /* Ensure cards wrap on smaller screens */
+    justify-content: center; /* Center cards for responsiveness */
+    width: 100%; /* Ensure full width for consistency */
 }
 
 #ServiciosTitle {
@@ -19,11 +23,36 @@
     align-content: center;
     font-family: "Raleway", sans-serif;
     text-align: center;
-    font-size: 3.5rem; /* Usar rem para una escala más flexible */
+    font-size: clamp(2rem, 4vw, 3.5rem); /* Dynamic font scaling */
     font-weight: bold;
-    margin-top: 6.5vh;
-    margin-bottom: 6vh;
+    margin: 4vh 0; /* Simplify margin values */
     width: 80%;
     z-index: 2;
     color: black;
+}
+
+/* Media queries for responsive adjustments */
+@media (max-width: 768px) {
+    #CardsCarousel {
+        gap: 2rem; /* Reduce gap between cards */
+    }
+
+    #ServiciosTitle {
+        font-size: clamp(1.8rem, 5vw, 3rem); /* Adjust font size */
+        margin: 3vh 0; /* Adjust spacing */
+        width: 90%; /* Expand title width */
+    }
+}
+
+@media (max-width: 480px) {
+    #CardsCarousel {
+        flex-direction: column; /* Stack cards vertically */
+        gap: 1.5rem; /* Further reduce gap */
+        align-items: center; /* Center align for better layout */
+    }
+
+    #ServiciosTitle {
+        font-size: clamp(1.5rem, 5vw, 2.5rem); /* Smaller title font */
+        margin: 2vh 0; /* Reduce margins */
+    }
 }

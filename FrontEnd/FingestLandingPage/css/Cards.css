@@ -1,28 +1,31 @@
-/* Estilos generales para las tarjetas */
+/* Card Styles */
+
 .Card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     border: 2px solid hsl(0, 0%, 80%);
-    background-color: #fff; /* Fondo blanco */
-    color: #333; /* Color del texto */
+    background-color: #fff;
+    color: #333;
     border-radius: 20px;
-    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.3); /* Sombra suave */
-    width: 300px; /* Ancho reducido */
-    height: 350px; /* Altura ajustada */
-    padding: 20px; /* Espaciado interno */
-    box-sizing: border-box; 
-    transition: background-color 1s, color 0.8s; /* Transición suave para hover */
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 300px;
+    height: 350px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 1s, color 0.8s;
+    margin: 0 auto;
 }
 
-/* Efecto hover */
+/* Hover Effects */
 .Card:hover {
-    background-color: #0A151C; /* Fondo oscuro al hacer hover */
+    background-color: #0A151C;
     border-radius: 20px;
 }
 
-.Card:hover .CardTitle,
+.Card:hover .CardTitle, 
 .Card:hover .CardContent {
     color: #fff;
 }
@@ -31,14 +34,13 @@
     display: block !important;
 }
 
-/* Ajustes cuando se hace hover en el título de la tarjeta */
-.Card:Hover .CardTitle {
-    position: static; 
+.Card:hover .CardTitle {
+    position: static;
     top: 0%;
-    font-size: 28px; /* Reducido para un tamaño más pequeño */
+    font-size: 28px;
 }
 
-/* Estilos del título de la tarjeta */
+/* Card Title Styles */
 .CardTitle {
     position: relative;
     top: 30%;
@@ -46,19 +48,51 @@
     color: #333;
     font-family: "Raleway", sans-serif;
     font-weight: bold;
-    font-size: 30px; /* Reducido para hacerlo más pequeño */
-    text-align: center; /* Centra el texto */
+    font-size: 30px;
+    text-align: center;
     margin-bottom: 10px;
 }
 
-/* Estilos del contenido de la tarjeta */
+/* Card Content Styles */
 .CardContent {
     width: 100%;
-    color: #555; /* Texto gris */
+    color: #555;
     font-family: "Raleway", sans-serif;
-    font-size: 16px; /* Tamaño de fuente más pequeño */
+    font-size: 16px;
     font-weight: normal;
-    line-height: 1.5; /* Espaciado entre líneas */
-    text-align: center; /* Justifica el contenido */
+    line-height: 1.5;
+    text-align: center;
     padding: 10px;
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 768px) {
+    .Card {
+        max-width: 250px;
+        height: 300px;
+    }
+
+    .CardTitle {
+        font-size: 24px;
+    }
+
+    .CardContent {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Card {
+        max-width: 220px;
+        height: 280px;
+    }
+
+    .CardTitle {
+        font-size: 20px;
+    }
+
+    .CardContent {
+        font-size: 12px;
+        padding: 5px;
+    }
 }

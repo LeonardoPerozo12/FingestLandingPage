@@ -14,13 +14,13 @@ function Footer() {
         />
         <ul className="footer-links">
         <li className="footer-link-item">
-            <Link to="/about" className="footer-link">Contactanos: example@gmail.com</Link>
+            <Link to="/" className="footer-link">Contactanos: example@gmail.com</Link>
         </li>
         <li className="footer-link-item">
-            <Link to="/privacy" className="footer-link">Preguntas Frecuentes</Link>
+            <Link to="/" className="footer-link">Preguntas Frecuentes</Link>
         </li>
         <li className="footer-link-item">
-            <Link to="/contact" className="footer-link">Copyright © 2024 Example.com. All Rights Reserved.</Link>
+            <Link to="/" className="footer-link">Copyright © 2024 Example.com. All Rights Reserved.</Link>
             </li>
         </ul>
         </div>

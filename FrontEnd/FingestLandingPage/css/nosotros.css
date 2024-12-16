@@ -8,62 +8,61 @@
 }
 
 #NosotrosTitleFringe {
-    margin: 0;    
+    margin: 0;
     background-color: #091014;
     width: 100%;
     height: 140px;
     display: flex;
     justify-content: center;
+    align-items: center; /* Center the title vertically */
 }
 
 #NosotrosTitle {
     font-family: "Raleway", sans-serif;
-    font-size: 4rem; /* Usar rem para tamaño de fuente relativo */
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Scalable title font size */
     font-weight: bold;
     color: #fdfdfd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }
 
 #NosotrosContent {
     font-family: "Raleway", sans-serif;
-    font-size: 1.5rem; /* Usar rem para tamaño de fuente relativo */
+    font-size: clamp(1rem, 2vw, 1.5rem); /* Scalable content font size */
     text-align: left;
     color: #232121;
-    margin: 2rem 10vw 0rem 10vw; /* Usar vw para márgenes relativos */
+    margin: 2rem 5vw; /* Adjust margins for better responsiveness */
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.8; /* Increase line spacing for readability */
 }
 
 .counter-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 2rem;
-    margin-top: 0.7rem;
+    gap: 3rem; /* Increase spacing for larger screens */
+    margin-top: 1rem;
     margin-bottom: 5rem;
-    width: 80%;
+    width: 100%;
+    flex-wrap: wrap; /* Enable wrapping for smaller screens */
 }
 
 .counter-container {
     display: flex;
     flex-direction: column;
-    margin-top: 0px;
-    margin-bottom: 0px;
     text-align: center;
-    gap: 5px;
+    gap: 10px; /* Add more space between counter elements */
 }
 
 .counter-item {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    gap: 10px;
+    gap: 15px; /* Increase gap for better separation */
 }
 
 .counter-item h1 {
-    margin: 0px;
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3rem); /* Scalable font size for counter */
 }
 
 .counter-value {
@@ -72,12 +71,11 @@
 }
 
 .counter-label {
-    font-size: 1.5em; /* Usar em para tamaño de fuente relativo */
+    font-size: clamp(1rem, 2vw, 1.5em); /* Scalable label font size */
     color: #232121;
     display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    text-align: left;
+    flex-direction: column;
+    text-align: center; /* Center align for smaller screens */
 }
 
 .image-container {
@@ -85,29 +83,35 @@
     align-items: center;
     justify-content: center;
     border: 2px dashed #ccc;
-    width: 90%; /* Ajustado para pantallas más pequeñas */
-    height: auto; /* Ajuste automático de la altura */
+    width: auto;
+    height: auto;
+    padding: 1rem; /* Add padding for better spacing */
     color: #ccc;
 }
 
-/* Media query para pantallas más pequeñas */
+/* Media queries for responsiveness */
 @media (max-width: 768px) {
     #NosotrosContent {
-        font-size: 1.8rem; /* Reducir tamaño de fuente en pantallas más pequeñas */
-        margin: 2rem 5vw 4rem 5vw; /* Márgenes más pequeños con vw */
+        margin: 1.5rem 7vw; /* Adjust margins for tablets */
+        font-size: clamp(1rem, 4vw, 1.3rem); /* Slightly smaller content font */
     }
 
     .counter-section {
-        flex-direction: column;
-        width: 100%; /* Asegura que los contadores se ajusten en pantallas pequeñas */
+        gap: 2rem; /* Reduce gap for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #NosotrosContent {
+        margin: 1rem 4vw; /* Narrower margins for mobile devices */
+        font-size: clamp(0.9rem, 4vw, 1rem); /* Smaller content font */
     }
 
-    .counter-value {
-        font-size: 5vw; /* Aumenta la adaptación en pantallas más pequeñas */
+    .counter-item h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem); /* Reduce counter size */
     }
 
-    .image-container {
-        width: 90%; /* Ajustar el tamaño para pantallas más pequeñas */
-        height: auto; /* Ajustar altura automáticamente */
+    .counter-label {
+        font-size: clamp(0.9rem, 3vw, 1rem); /* Adjust label font size */
     }
 }

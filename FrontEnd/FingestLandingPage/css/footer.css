@@ -28,25 +28,30 @@
 
 
 .footer-logo {
-    width: 150px;
+    width: auto;
     height: 70px;
-    margin-left: 1.5vh;
 }
 
 /* Links */
 .footer-links {
     display: flex;
     list-style: none; /* Elimina los puntos de las listas */
-    gap: 70px; /* Espaciado entre los enlaces */
     padding: 0;
     margin: 0;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .footer-link {
     color: white;
     text-decoration: none;
-    font-size: 1rem; /* Usar rem para tamaño relativo */
+    font-size: 1em;
     font-weight: bold;
+}
+
+.footer-link-item {
+    flex: 1; /* Allow items to grow and fill available space */
+    text-align: center; /* Center text inside each item */
 }
 
 .footer-link:hover {
@@ -54,24 +59,14 @@
     text-decoration: none;
 }
 
-/* Media query para pantallas más pequeñas */
 @media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
-        align-items: center; /* Centrar los elementos verticalmente */
-    }
-
-    .footer-links {
-        flex-direction: column; /* Enlaces en columna */
-        gap: 20px; /* Menor separación entre los enlaces */
-    }
-
-    .footer-logo {
-        margin-left: 0; /* Eliminar margen en pantallas pequeñas */
-        margin-bottom: 10px; /* Añadir espacio debajo del logo */
-    }
-
     .footer-link {
-        font-size: 1rem; /* Ajustar tamaño de fuente en pantallas pequeñas */
+        font-size: 0.7rem !important;
+    }
+}
+
+    @media (max-width: 500px) {
+    .footer-link {
+        font-size: 0.7rem;
     }
 }
