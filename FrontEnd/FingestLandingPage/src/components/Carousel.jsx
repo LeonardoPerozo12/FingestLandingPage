@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Cards from './Cards'; // Tu componente de tarjetas
-import '../../css/Carousel.css';
+import '../../css/carousel.css';
 
 const Carousel = () => {
     const carouselRef = useRef(null);

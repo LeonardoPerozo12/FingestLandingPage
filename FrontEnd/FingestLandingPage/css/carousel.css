@@ -17,7 +17,7 @@
 .carousel-row {
     display: flex;
     flex-wrap: nowrap;
-    gap: 15px;
+    gap: 30px;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -25,6 +25,5 @@
 .carousel-item {
     flex: 0 0 auto;
     max-width: 300px; /* Tamaño reducido de las tarjetas */
-    height: 350px; /* Altura ajustada */
-    margin-bottom: 40px; /* Espacio reducido abajo */
+    height: auto; /* Altura ajustada */
 }

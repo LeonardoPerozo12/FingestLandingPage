@@ -92,7 +92,6 @@
 /* Media query para pantallas más pequeñas */
 @media (max-width: 768px) {
     #NosotrosContent {
-        font-size: 1.8rem; /* Reducir tamaño de fuente en pantallas más pequeñas */
         margin: 2rem 5vw 4rem 5vw; /* Márgenes más pequeños con vw */
     }
 

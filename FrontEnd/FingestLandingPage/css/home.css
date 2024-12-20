@@ -1,6 +1,17 @@
+
+main, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.Background-Image-Home, #Servicios, #Nosotros {
+    width: 100%;
+    max-width: 100vw; /* Prevent exceeding the viewport width */
+    overflow: hidden; /* Avoid overflow */
+    flex-shrink: 0;
+}
+
 /* Home Background */
-
-
 .Background-Image-Home {
     display: flex;
     flex-direction: column;
@@ -9,12 +20,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 115vh;
+    height: 85vh;
     width: 100%;
-    padding-top: 5%;
-    clip-path: inset(0 0 30vh 0); /* Recorta la parte inferior */
-    margin-bottom: -30vh;
+    /* padding-top: 5%; */
+    /* clip-path: inset(0 0 30vh 0); Recorta la parte inferior */
+    margin-bottom: 0;
     overflow: hidden; /* Evita desbordes inesperados */
+    justify-content: center;
 }
 
 .overlay {
@@ -33,54 +45,12 @@
     margin: 0;
     font-family: "Raleway", sans-serif;
     text-align: center;
-    font-size: clamp(2rem, 5vw, 6rem); /* Escalable */
+    font-size: clamp(3rem, 5vw, 6rem); /* Escalable */
     font-weight: bold;
     color: white;
     z-index: 2;
 }
 
-.HomeTitle {
-    margin-top: 10%; /* Ajuste dinámico */
-}
-
 .HomeTitle2 {
     margin-top: 2%; /* Menor espacio entre títulos */
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .Background-Image-Home {
-        height: 90vh; /* Reduce altura para dispositivos medianos */
-        width: 100%;        clip-path: inset(0 0 20vh 0); /* Ajusta recorte */
-        margin-bottom: -20vh;
-    }
-
-    .HomeTitle {
-        margin-top: 12%; /* Ajusta espaciado */
-        font-size: clamp(1.5rem, 4vw, 4rem); /* Reduce tamaño */
-    }
-
-    .HomeTitle2 {
-        font-size: clamp(1rem, 3vw, 3rem); /* Texto más pequeño */
-        margin-top: 5%; /* Aumenta separación */
-    }
-}
-
-@media (max-width: 480px) {
-    .Background-Image-Home {
-        padding-top: 10%; /* Ajusta padding superior */
-        height: 85vh; /* Reduce altura para móviles */
-        clip-path: inset(0 0 15vh 0); /* Menor recorte */
-        margin-bottom: -15vh;
-    }
-
-    .HomeTitle {
-        margin-top: 15%; /* Espaciado extra para texto */
-        font-size: clamp(1.2rem, 3.5vw, 2.8rem); /* Fuente pequeña */
-    }
-
-    .HomeTitle2 {
-        margin-top: 2%; /* Más espacio entre títulos */
-        font-size: clamp(1rem, 3vw, 2.5rem); /* Reduce tamaño */
-    }
 }
