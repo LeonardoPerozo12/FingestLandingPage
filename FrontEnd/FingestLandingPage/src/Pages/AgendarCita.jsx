@@ -5,16 +5,18 @@ import '../../css/agendarCita.css';
 function AgendarCita() {
     const [formData, setFormData] = useState({
         nombre: '',
-        apellido: '',
+        numero: '',
         correo: '',
         fecha: '',
         hora: '',
+        modalidad: '', // Valor inicial (virtual o presencial)
+        motivo: '', // Para el texto multiline
     });
 
     const clearForm = () => {
         setFormData({
             nombre: '',
-            apellido: '',
+            numero: '',
             correo: '',
             fecha: '',
             hora: '',
@@ -49,10 +51,10 @@ function AgendarCita() {
                             required
                         />
                         <input
-                            type="text"
-                            name="apellido"
-                            placeholder="Apellido"
-                            value={formData.apellido}
+                            type="tel"
+                            name="numero"
+                            placeholder="Número de teléfono"
+                            value={formData.numero}
                             onChange={handleChange}
                             className="input"
                             required

@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  customer_id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  phone_number String? @db.VarChar(30)
+  email String @unique @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  appointments Appointment[]
+}
+
+model Appointment {
+  appointment_id Int @id @default(autoincrement())
+  reason_for_appointment String? @db.VarChar(500)
+  appointment_mode Boolean
+  appointment_date DateTime // Guarda la fecha completa (fecha + hora)
+  appointment_time DateTime // Fecha completa, pero solo se usa la hora
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  customer Customer @relation(fields: [customer_id], references: [customer_id])
+  customer_id Int
+}
+

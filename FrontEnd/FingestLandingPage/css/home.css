@@ -1,3 +1,5 @@
+/* Home Background */
+
 
 .Background-Image-Home {
     display: flex;
@@ -12,6 +14,7 @@
     padding-top: 5%;
     clip-path: inset(0 0 30vh 0); /* Recorta la parte inferior */
     margin-bottom: -30vh;
+    overflow: hidden; /* Evita desbordes inesperados */
 }
 
 .overlay {
@@ -24,6 +27,7 @@
     z-index: 1;
 }
 
+/* Titles */
 .HomeTitle, .HomeTitle2 {
     position: relative;
     margin: 0;
@@ -43,35 +47,40 @@
     margin-top: 2%; /* Menor espacio entre títulos */
 }
 
-/* Add media queries for smaller screens */
+/* Media Queries */
 @media (max-width: 768px) {
     .Background-Image-Home {
-        height: 90vh; /* Reduce height for smaller devices */
-        clip-path: inset(0 0 20vh 0); /* Adjust cropping */
+        height: 90vh; /* Reduce altura para dispositivos medianos */
+        width: 100%;        clip-path: inset(0 0 20vh 0); /* Ajusta recorte */
         margin-bottom: -20vh;
     }
 
     .HomeTitle {
-        margin-top: 10%; /* Increase spacing for better readability */
+        margin-top: 12%; /* Ajusta espaciado */
+        font-size: clamp(1.5rem, 4vw, 4rem); /* Reduce tamaño */
     }
 
     .HomeTitle2 {
-        font-size: clamp(1.2rem, 3vw, 3.5rem); /* Smaller font on small devices */  
+        font-size: clamp(1rem, 3vw, 3rem); /* Texto más pequeño */
+        margin-top: 5%; /* Aumenta separación */
     }
 }
 
 @media (max-width: 480px) {
     .Background-Image-Home {
-        padding-top: 10%; /* Adjust padding */
-        height: 85vh; /* Further reduce height */
+        padding-top: 10%; /* Ajusta padding superior */
+        height: 85vh; /* Reduce altura para móviles */
+        clip-path: inset(0 0 15vh 0); /* Menor recorte */
+        margin-bottom: -15vh;
     }
 
     .HomeTitle {
-        font-size: clamp(1.2rem, 4vw, 3rem); /* Further reduce font size */
-        margin-top: 10%;
+        margin-top: 15%; /* Espaciado extra para texto */
+        font-size: clamp(1.2rem, 3.5vw, 2.8rem); /* Fuente pequeña */
     }
 
     .HomeTitle2 {
-        margin-top: 5%;
+        margin-top: 2%; /* Más espacio entre títulos */
+        font-size: clamp(1rem, 3vw, 2.5rem); /* Reduce tamaño */
     }
 }

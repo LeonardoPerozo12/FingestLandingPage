@@ -1,8 +1,7 @@
-/* General Styles */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -23,34 +22,37 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-contents {
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; /* Asegura que los elementos se ajusten en pantallas más pequeñas */
+  flex-wrap: wrap; /* Ajusta contenido en pantallas pequeñas */
 }
 
 .header-title {
   margin: 0;
   font-size: 2rem;
-}
-
-.nav-item {
-  font-weight: bold;
+  flex-shrink: 0;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; /* Distribute links evenly */
+  justify-content: space-evenly;
   align-items: center;
-  gap: 1.5rem;
-  flex-grow: 1; /* Permite que la lista de navegación ocupe el espacio restante */
+  gap: 2.5rem;
+  flex-grow: 1;
+}
+
+.nav-item {
+  font-weight: bold;
 }
 
 .nav-link {
@@ -58,12 +60,12 @@ body {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.8rem;
-  transition: color 0.3s ease-in-out, transform 0.2s ease; /* Efectos suaves */
+  transition: color 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .nav-link:hover {
   color: #9b1818;
-  transform: scale(1.05); /* Aumenta ligeramente al pasar el mouse */
+  transform: scale(1.05);
 }
 
 .logo {
@@ -72,27 +74,52 @@ body {
   object-fit: contain;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   .header-contents {
-      align-items: center;
-      justify-content: space-between; /* Asegura que el logo y el texto estén bien distribuidos */
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-title {
+    font-size: 1.5rem; /* Reduce tamaño del título */
   }
 
   .logo {
-      max-width: 120px;
+    max-width: 120px;
+  }
+
+  .nav-list {
+    gap: 1.5rem;
   }
 
   .nav-link {
-      font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 500px) {
-  .nav-link {
-    font-size: 0.7rem;
+  .header-contents {
+    flex-direction: column; /* Apila el contenido */
+    align-items: center;
   }
 
   .header-title {
+    font-size: 1.2rem; /* Más pequeño para móviles */
     text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .nav-list {
+    flex-direction: row; /* Cambia a columna */
+    gap: 1rem; /* Reduce el espacio */
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    max-width: 100px;
   }
 }
