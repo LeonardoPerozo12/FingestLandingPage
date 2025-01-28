@@ -80,7 +80,7 @@ function AgendarCita() {
                             onChange={handleChange}
                             className="input"
                             required
-                        />
+                        />  
                         <input
                             type="time"
                             name="hora"
