@@ -11,6 +11,7 @@
     overflow: hidden; /* Oculta contenido que no cabe */
     position: relative;
     margin: auto;
+    
 }
 
 /* Fila de los items del carrusel */

@@ -12,7 +12,14 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
-
+model User{
+    user_id Int @id @default(autoincrement())
+    email String @unique @db.VarChar(255)
+    password String @db.VarChar(100)
+    UserName String @db.VarChar(255)
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+}
 model Customer {
   customer_id Int @id @default(autoincrement())
   name String @db.VarChar(255)

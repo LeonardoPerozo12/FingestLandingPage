@@ -17,6 +17,7 @@
     box-sizing: border-box;
     transition: background-color 1s, color 0.8s;
     margin: 0 auto;
+    margin-bottom: 5%;
 }
 
 /* Hover Effects */
