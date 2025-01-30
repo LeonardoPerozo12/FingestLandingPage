@@ -11,6 +11,9 @@ const port = 8000;
 app.use(express_1.default.json()); // Middleware to parse JSON requests
 app.use("/api", userRoutes_1.default);
 app.use("/api", appointmentRoutes_1.default);
+app.get("/", (req, res) => {
+    res.send("<h1>API de Fingest<h1>");
+});
 app.listen(port, () => {
     console.log(`Now listening on port http://localhost:${port}`);
 });

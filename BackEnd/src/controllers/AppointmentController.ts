@@ -129,3 +129,47 @@ export const getAvailableDatesAndTimes = async (req: Request, res: Response): Pr
         res.status(500).json({ message: "Error retrieving available dates and times", error });
     }
 };
+
+export const deleteAppointment = async (req : Request, res: Response): Promise<void> =>{
+    try{
+        
+
+        const appointment_Id = parseInt(req.params.id, 10);
+
+        // revisa si existe la cita
+        const existingAppointment = await prisma.appointment.findUnique({
+
+            where: {appointment_id : appointment_Id}
+        });
+
+        if(!existingAppointment){
+            res.status(404).json({ error : "Appointment not found | Cita no encontrada"});
+            return;
+        }
+
+        //eliminacion de la cita
+        await prisma.appointment.delete({
+
+            where : {appointment_id: appointment_Id}
+        });
+
+    res.status(200).json({ message: 'Cita eliminada correctamente' });
+    
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error al eliminar la cita' });
+    }   
+}
+
+export const getAppointments = async(req: Request, res: Response): Promise<void> => {
+    try{
+        const appointments = await prisma.appointment.findMany();
+        res.json(appointments);
+    }
+    catch(error){
+        res.status(500).json({
+            message: "Error fetching Users | Error buscando Los usuarios",
+            error: error instanceof Error ? error.message : "Unknown error"
+        });
+    }
+}

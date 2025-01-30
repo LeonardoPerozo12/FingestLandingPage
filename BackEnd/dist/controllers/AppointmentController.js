@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAvailableDatesAndTimes = exports.createAppointment = void 0;
+exports.getAppointments = exports.deleteAppointment = exports.getAvailableDatesAndTimes = exports.createAppointment = void 0;
 const prisma_1 = __importDefault(require("../prisma"));
 const createAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -125,3 +125,39 @@ const getAvailableDatesAndTimes = (req, res) => __awaiter(void 0, void 0, void 0
     }
 });
 exports.getAvailableDatesAndTimes = getAvailableDatesAndTimes;
+const deleteAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const appointment_Id = parseInt(req.params.id, 10);
+        // revisa si existe la cita
+        const existingAppointment = yield prisma_1.default.appointment.findUnique({
+            where: { appointment_id: appointment_Id }
+        });
+        if (!existingAppointment) {
+            res.status(404).json({ error: "Appointment not found | Cita no encontrada" });
+            return;
+        }
+        //eliminacion de la cita
+        yield prisma_1.default.appointment.delete({
+            where: { appointment_id: appointment_Id }
+        });
+        res.status(200).json({ message: 'Cita eliminada correctamente' });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error al eliminar la cita' });
+    }
+});
+exports.deleteAppointment = deleteAppointment;
+const getAppointments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const appointments = yield prisma_1.default.appointment.findMany();
+        res.json(appointments);
+    }
+    catch (error) {
+        res.status(500).json({
+            message: "Error fetching Users | Error buscando Los usuarios",
+            error: error instanceof Error ? error.message : "Unknown error"
+        });
+    }
+});
+exports.getAppointments = getAppointments;
