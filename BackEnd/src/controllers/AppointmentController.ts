@@ -1,6 +1,7 @@
 import prisma from "../prisma";
 import { Request, Response } from "express";
 import {checkAvailability} from '../utils/availability'
+import eventEmitter from "../utils/Mail";
 
 
 export const createAppointment = async (req: Request, res: Response): Promise<void> => {
@@ -44,6 +45,15 @@ export const createAppointment = async (req: Request, res: Response): Promise<vo
         // Formatear la fecha y hora antes de responder
         const formattedDate = new Date(appointment.appointment_date).toISOString().split('T')[0];  // Solo la fecha (YYYY-MM-DD)
         const formattedTime = new Date(appointment.appointment_time).toISOString().split('T')[1].slice(0, 5);  // Solo la hora (HH:mm)
+
+        // Emitir un evento para enviar un correo electrónico con los detalles de la cita
+        eventEmitter.emit("sendAppointmentEmail", {
+            email,
+            name,
+            appointment_date: formattedDate,
+            appointment_time: formattedTime,
+        });
+
 
         // Responder con la cita creada
         res.status(201).json({
