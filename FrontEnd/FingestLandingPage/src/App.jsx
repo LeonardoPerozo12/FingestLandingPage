@@ -21,7 +21,7 @@ function App() {
     const scrollToSection = (elementRef) => {
         if (!elementRef.current) return;
 
-        const headerOffset = 80; // Ajustar según la altura de tu header
+        const headerOffset = 90; // Ajustar según la altura de tu header
         const elementPosition = elementRef.current.offsetTop;
         const offsetPosition = elementPosition - headerOffset;
 

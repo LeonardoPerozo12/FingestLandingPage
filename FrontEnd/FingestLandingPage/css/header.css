@@ -43,7 +43,7 @@ body {
   flex-direction: row; /* Default row layout */
   justify-content: flex-start; /* Align items to the start */
   flex-wrap: wrap; /* Allow wrapping */
-  gap: 1rem; /* Reduce gap on smaller screens */
+  gap: 2rem; /* Reduce gap on smaller screens */
   list-style-type: none;
 }
 

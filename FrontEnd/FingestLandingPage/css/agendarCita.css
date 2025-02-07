@@ -1,29 +1,42 @@
+body{
+    margin: 0;
+    display: flex;
+    place-items: start;
+    min-width: 320px;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;   
+}
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -5%;
     min-height: 100vh;
+    width: 100%; /* Ensure the container takes the full width */
     background-color: #f7f7f7;
-
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .form {
     display: flex;
     flex-direction: column; /* Apila verticalmente los bloques principales */
     gap: 20px; /* Espacio entre las secciones */
+    width: 100%; /* Ensure the form takes the full width */
 }
-.formControllers{
+
+.formControllers {
     display: flex;
     flex-direction: row;
     gap: 5%;
     align-items: center;
+    width: 100%; /* Ensure the form controllers take the full width */
 }
-
 
 .inputsContainer,
 .CalendarContainer {
     flex: 1; /* Hace que ambas secciones tengan tamaños iguales */
+    width: 100%; /* Ensure the containers take the full width */
 }
 
 .buttonSection {
@@ -32,7 +45,6 @@
     justify-content: center; /* Centra el botón horizontalmente */
     margin-top: 20px; /* Espaciado superior opcional */
 }
-
 
 .formContainer {
     background: #fff;
@@ -66,14 +78,14 @@
     font-family: 'Raleway', sans-serif;
 }
 
-.buttonSection{
+.buttonSection {
     display: flex;
     flex-direction: row-reverse;
     margin-left: 5%;
     margin-right: 5%;
-
     gap: 15%;
 }
+
 .submitButton {
     width: 50%;
     padding: 10px;
@@ -86,6 +98,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 .clearButton {
     width: 50%;
     padding: 10px;
@@ -98,6 +111,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 .clearButton:hover {
     background-color: #8d1515;
 }
