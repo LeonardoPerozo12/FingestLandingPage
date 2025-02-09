@@ -1,0 +1,44 @@
+.dashboard-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashboard-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.dashboard-charts {
+    display: flex;
+    justify-content: space-around;
+}
+
+.chart-card {
+    width: 45%;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+.latest-appointments {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}

@@ -1,6 +1,6 @@
 /* Card Styles */
 
-.Card {
+.DisplayCard {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,21 +21,21 @@
 }
 
 /* Hover Effects */
-.Card:hover {
+.DisplayCard:hover {
     background-color: #0A151C;
     border-radius: 20px;
 }
 
-.Card:hover .CardTitle, 
-.Card:hover .CardContent {
+.DisplayCard:hover .CardTitle, 
+.DisplayCard:hover .CardContent {
     color: #fff;
 }
 
-.Card:hover .CardContent {
+.DisplayCard:hover .CardContent {
     display: block !important;
 }
 
-.Card:hover .CardTitle {
+.DisplayCard:hover .CardTitle {
     position: static;
     top: 0%;
     font-size: 28px;
@@ -67,7 +67,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .Card {
+    .DisplayCard {
         max-width: 200px;
         height: 250px;
     }
@@ -77,14 +77,14 @@
     .CardContent {
         font-size: 14px;
     }
-    .Card:hover .CardTitle {
+    .DisplayCard:hover .CardTitle {
         position: static;
         top: 0%;
         font-size: 20px;
     }
 }
 @media screen and (max-width: 480px) {
-    .Card {
+    .DisplayCard {
         max-width: 220px;
         height: 280px;
     }
@@ -95,7 +95,7 @@
         font-size: 12px;
         padding: 5px;
     }
-    .Card:hover .CardTitle {
+    .DisplayCard:hover .CardTitle {
         position: static;
         top: 0%;
         font-size: 20px;

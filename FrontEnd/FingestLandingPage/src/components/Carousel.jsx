@@ -52,14 +52,14 @@ const Carousel = () => {
     };
 
     return (
-        <div className="carousel-container" ref={carouselRef}>
+        <div className="CardsCarousel-container" ref={carouselRef}>
             <div
-                className="carousel-row"
+                className="CardsCarousel-row"
                 onMouseEnter={handlePause}
                 onMouseLeave={handleResume}
             >
                 {duplicatedCards.map((card, index) => (
-                    <div className="carousel-item" key={index}>
+                    <div className="CardsCarousel-item" key={index}>
                         <Cards title={card.title} content={card.content} />
                     </div>
                 ))}

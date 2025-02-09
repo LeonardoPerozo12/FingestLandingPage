@@ -38,7 +38,7 @@ body {
   flex-shrink: 0;
 }
 
-.nav-list {
+.header-nav-list {
   display: flex;
   flex-direction: row; /* Default row layout */
   justify-content: flex-start; /* Align items to the start */
@@ -47,11 +47,11 @@ body {
   list-style-type: none;
 }
 
-.nav-item {
+.header-nav-item {
   font-weight: bold;
 }
 
-.nav-link {
+.header-nav-link {
   color: #333;
   text-decoration: none;
   font-weight: bold;
@@ -60,7 +60,7 @@ body {
   list-style-type: none;
 }
 
-.nav-link:hover {
+.header-nav-link:hover {
   color: #9b1818;
   transform: scale(1.05);
 }

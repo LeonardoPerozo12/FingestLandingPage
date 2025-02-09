@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 
-.carousel-container {
+.CardsCarousel-container {
     width: 100%;
     max-width: 1000px; /* Ajusta según tu diseño */
     overflow: hidden; /* Oculta contenido que no cabe */
@@ -15,7 +15,7 @@
 }
 
 /* Fila de los items del carrusel */
-.carousel-row {
+.CardsCarousel-row {
     display: flex;
     flex-wrap: nowrap;
     gap: 30px;
@@ -23,7 +23,7 @@
 }
 
 /* Elemento individual del carrusel */
-.carousel-item {
+.CardsCarousel-item {
     flex: 0 0 auto;
     max-width: 300px; /* Tamaño reducido de las tarjetas */
     height: auto; /* Altura ajustada */

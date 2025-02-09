@@ -21,25 +21,25 @@ function Header({
             </Link>
             </h1>
             <nav className="nav">
-                <ul className="nav-list">
-                    <li className="nav-item">
-                        <Link to='/agendar-cita' className='nav-link'>
+                <ul className="header-nav-list">
+                    <li className="header-nav-item">
+                        <Link to='/agendar-cita' className='header-nav-link'>
                             Agendar Cita
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="header-nav-item">
                         <a 
                             href="#servicios" 
-                            className="nav-link"
+                            className="header-nav-link"
                             onClick={(e) => { e.preventDefault(); onServiciosClick(); }}
                         >
                             Servicios
                         </a>
                     </li>
-                    <li className="nav-item">
+                    <li className="header-nav-item">
                         <a 
                             href="#nosotros" 
-                            className="nav-link"
+                            className="header-nav-link"
                             onClick={(e) => { e.preventDefault(); onNosotrosClick(); }}
                         >
                             Nosotros

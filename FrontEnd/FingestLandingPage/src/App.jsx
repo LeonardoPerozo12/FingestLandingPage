@@ -31,19 +31,25 @@ function App() {
         });
     };
 
+    const showHeader = ["/", "/agendar-cita"].includes(location.pathname);
+
     return (
         <>
-            <Header
-                onHomeClick={() => scrollToSection(homeRef)}
-                onServiciosClick={() => scrollToSection(serviciosRef)}
-                onNosotrosClick={() => scrollToSection(nosotrosRef)}
-            />
+            {showHeader && (
+                <Header
+                    onHomeClick={() => scrollToSection(homeRef)}
+                    onServiciosClick={() => scrollToSection(serviciosRef)}
+                    onNosotrosClick={() => scrollToSection(nosotrosRef)}
+                />
+            )}
             <RouterConfig
                 homeRef={homeRef}
                 serviciosRef={serviciosRef}
                 nosotrosRef={nosotrosRef}
             />
-            <Footer />
+            {showHeader && (
+                <Footer />
+            )}
         </>
     );
 }

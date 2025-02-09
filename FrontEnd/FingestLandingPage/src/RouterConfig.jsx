@@ -1,9 +1,11 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/HomePage';
-import Servicios from './Pages/ServiciosPage';
 import Nosotros from './Pages/NosotrosPage';
 import AgendarCita from './Pages/AgendarCita';
+import Servicios from './Pages/ServiciosPage';
+import { Routes, Route } from 'react-router-dom';
+import { NotFoundPage } from './Pages/NotFoundPage';
+import { DashboardRoutes } from './routes/dashboardRoutes';
 
 function RouterConfig({ homeRef, serviciosRef, nosotrosRef }) {
     return (
@@ -25,6 +27,12 @@ function RouterConfig({ homeRef, serviciosRef, nosotrosRef }) {
                 }
             />
             <Route path="/agendar-cita" element={<AgendarCita />} />
+            
+            {/* Rutas protegidas */}
+            <Route path="/dashboard/*" element={<DashboardRoutes />} />
+            
+            {/* 404 para rutas no definidas */}
+            <Route path="*" element={<NotFoundPage />} />
         </Routes>
     );
 }
