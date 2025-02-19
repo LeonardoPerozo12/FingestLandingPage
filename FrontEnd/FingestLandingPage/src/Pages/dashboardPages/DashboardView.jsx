@@ -52,7 +52,6 @@ export function DashboardView() {
 
     const processAppointmentData = (data) => {
         const todayDate = new Date().toISOString().split("T")[0];
-
         const totalAppointments = data.length;
         const todayAppointments = data.filter(cita =>
             cita.appointment_date.startsWith(todayDate)
@@ -102,6 +101,8 @@ export function DashboardView() {
         ]
     };
 
+    const sortByIdDesc = (a, b) => b.appointment_id - a.appointment_id;
+
     return (
         <SidebarLayout sidebarWidthPx={sidebarWidthPx}>
             <h1 className="dashboard-title">Dashboard de Citas</h1>
@@ -145,15 +146,18 @@ export function DashboardView() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {appointments.slice(0, 5).map((cita) => (
-                                        <tr key={cita.appointment_id}>
-                                            <td>{cita.appointment_id}</td>
-                                            <td>{format(new Date(cita.appointment_date), "dd/MM/yyyy", { locale: es })}</td>
-                                            <td>{format(new Date(cita.appointment_time), "HH:mm", { locale: es })}</td>
-                                            <td>{cita.appointment_mode ? "Virtual" : "Presencial"}</td>
-                                            <td>{cita.reason_for_appointment}</td>
-                                        </tr>
-                                    ))}
+                                    {appointments
+                                        .sort(sortByIdDesc)
+                                        .slice(0, 5)
+                                        .map((cita) => (
+                                            <tr key={cita.appointment_id}>
+                                                <td>{cita.appointment_id}</td>
+                                                <td>{format(new Date(cita.appointment_date), "dd/MM/yyyy", { locale: es })}</td>
+                                                <td>{format(new Date(cita.appointment_time), "HH:mm", { locale: es })}</td>
+                                                <td>{cita.appointment_mode ? "Virtual" : "Presencial"}</td>
+                                                <td>{cita.reason_for_appointment}</td>
+                                            </tr>
+                                        ))}
                                 </tbody>
                             </table>
                         </div>

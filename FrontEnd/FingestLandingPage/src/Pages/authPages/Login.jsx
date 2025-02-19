@@ -1,16 +1,19 @@
 import axios from "axios"
 import { useState } from "react"
 import { toast } from "react-toastify"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../../../css/authStyles.css"
 import { Spinner } from "../../components/Spinner"
 import { useAuthStore } from "../../stores/authStore"
 import { PasswordField } from "../../components/PasswordField"
 import { AuthLayout } from "../../components/layouts/authLayout"
 
+
+
 const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND
 
 export function Login() {
+    const navigate = useNavigate();
     const authStore = useAuthStore((state) => state)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -30,6 +33,7 @@ export function Login() {
                 if (response.status === 200) {
                     authStore.login(response.data)
                     toast.success("¡Inicio de sesión exitoso!")
+                    navigate("/dashboard/citas")
                     // TODO: Redirigir a la página de inicio
                 }
             })

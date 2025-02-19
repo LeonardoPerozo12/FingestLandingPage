@@ -21,12 +21,19 @@ const prisma_1 = __importDefault(require("../prisma"));
  * @returns {boolean} - True if the appointment is available, false otherwise.
  */
 const checkAvailability = (appointment_date, appointment_time) => __awaiter(void 0, void 0, void 0, function* () {
-    const requestedDate = new Date(`${appointment_date}T${appointment_time}:00`);
+    if (!appointment_date || !appointment_time) {
+        throw new Error("Fecha u hora no proporcionadas correctamente");
+    }
+    const formattedDate = appointment_date.split("T")[0]; // Asegura el formato YYYY-MM-DD
+    const requestedDate = new Date(`${formattedDate}T${appointment_time}:00`);
+    if (isNaN(requestedDate.getTime())) {
+        throw new Error(`Fecha inválida: ${formattedDate} ${appointment_time}`);
+    }
     const overlappingAppointments = yield prisma_1.default.appointment.findMany({
         where: {
-            appointment_date: requestedDate
-        }
+            appointment_date: requestedDate,
+        },
     });
-    return overlappingAppointments.length === 0; // Available if no overlapping appointments.
+    return overlappingAppointments;
 });
 exports.checkAvailability = checkAvailability;

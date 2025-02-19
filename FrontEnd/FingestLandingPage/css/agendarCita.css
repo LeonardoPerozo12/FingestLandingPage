@@ -7,12 +7,12 @@ body{
     min-height: 100vh;
     flex-direction: column;   
 }
-.container {
+
+.containerBG {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -5%;
-    min-height: 100vh;
     width: 100%; /* Ensure the container takes the full width */
     background-color: #f7f7f7;
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
@@ -26,13 +26,20 @@ body{
 }
 
 .formControllers {
+
+    align-items: flex-start !important;
     display: flex;
     flex-direction: row;
     gap: 5%;
     align-items: center;
     width: 100%; /* Ensure the form controllers take the full width */
 }
-
+.inputsContainer{
+    gap: 10%; /* Espacio entre los campos de entrada */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .inputsContainer,
 .CalendarContainer {
     flex: 1; /* Hace que ambas secciones tengan tamaños iguales */
@@ -47,34 +54,52 @@ body{
 }
 
 .formContainer {
+    margin-top: 15vh;
+    margin-bottom: 5vh;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0.5, 0.4);
+    max-width: 70%;
     width: 100%;
 }
 
-.form h2 {
+.form .formTitle {
     margin-bottom: 20px;
+    margin-left: 20px;
     font-family: 'Raleway', sans-serif;
-    color: #333;
-    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+    text-align: left;
+    color: #172732;
 }
 
 .inputsContainer,
 .CalendarContainer {
     margin-bottom: 20px;
 }
-
-.input {
-    color: #000 ;
-    width: 100%;
+.inputlabel{
+    max-height: 50px;
+    color: #000;
+    width: 30%;
     padding: 10px;
-    background-color: #D9D9D9;
+    background-color: #ECECEC;
     margin-bottom: 10px;
+    margin-top: 5%;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+.input {
+    max-height: 50px;
+    color: #000;
+    width: 30%;
+    padding: 10px;
+    background-color: #ECECEC;
+    margin-bottom: 10px;
+    margin-top: 5%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
     font-family: 'Raleway', sans-serif;
 }
 

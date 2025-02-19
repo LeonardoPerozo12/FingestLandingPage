@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAppointments = exports.deleteAppointment = exports.getAvailableDatesAndTimes = exports.createAppointment = void 0;
 const prisma_1 = __importDefault(require("../prisma"));
+const availability_1 = require("../utils/availability");
 const createAppointment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Extraemos los datos del cuerpo de la solicitud
@@ -21,6 +22,12 @@ const createAppointment = (req, res) => __awaiter(void 0, void 0, void 0, functi
         // Verificar que todos los campos necesarios estén presentes
         if (!name || !email || !appointment_date || !appointment_time || !reason_for_appointment || appointment_mode === undefined) {
             res.status(400).json({ message: "Faltan campos requeridos" });
+            return;
+        }
+        // Verificar disponibilidad
+        const isAvailable = yield (0, availability_1.checkAvailability)(appointment_date, appointment_time);
+        if (!isAvailable) {
+            res.status(400).json({ message: "La fecha y hora seleccionadas no están disponibles" });
             return;
         }
         // Verifica si el cliente ya existe por su email
@@ -50,6 +57,15 @@ const createAppointment = (req, res) => __awaiter(void 0, void 0, void 0, functi
         // Formatear la fecha y hora antes de responder
         const formattedDate = new Date(appointment.appointment_date).toISOString().split('T')[0]; // Solo la fecha (YYYY-MM-DD)
         const formattedTime = new Date(appointment.appointment_time).toISOString().split('T')[1].slice(0, 5); // Solo la hora (HH:mm)
+        // Emitir un evento para enviar un correo electrónico con los detalles de la cita
+        /*
+        eventEmitter.emit("sendAppointmentEmail", {
+            email,
+            name,
+            appointment_date: formattedDate,
+            appointment_time: formattedTime,
+        });
+        */
         // Responder con la cita creada
         res.status(201).json({
             message: "Cita creada exitosamente",
@@ -150,7 +166,11 @@ const deleteAppointment = (req, res) => __awaiter(void 0, void 0, void 0, functi
 exports.deleteAppointment = deleteAppointment;
 const getAppointments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const appointments = yield prisma_1.default.appointment.findMany();
+        const appointments = yield prisma_1.default.appointment.findMany({
+            include: {
+                customer: true
+            },
+        });
         res.json(appointments);
     }
     catch (error) {

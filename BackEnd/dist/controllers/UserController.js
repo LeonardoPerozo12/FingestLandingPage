@@ -61,7 +61,7 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return; // Add return to stop further execution
         }
         // Generate JWT
-        const token = jsonwebtoken_1.default.sign({ userId: user.user_id }, secret, { expiresIn: '1h' });
+        const token = jsonwebtoken_1.default.sign({ userId: user.user_id }, secret, { expiresIn: '12h' });
         res.json({ message: "Login successful | Inicio de sesión exitoso", token });
     }
     catch (error) {

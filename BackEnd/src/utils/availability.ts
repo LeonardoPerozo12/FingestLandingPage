@@ -6,15 +6,24 @@ import prisma from "../prisma";
  * @param {string} appointment_time - The time of the appointment (HH:MM).
  * @returns {boolean} - True if the appointment is available, false otherwise.
  */
+export const checkAvailability = async (appointment_date: string, appointment_time: string) => {
+    if (!appointment_date || !appointment_time) {
+        throw new Error("Fecha u hora no proporcionadas correctamente");
+    }
 
-export const checkAvailability = async (appointment_date: string, appointment_time: string): Promise<boolean> => {
-    const requestedDate = new Date(`${appointment_date}T${appointment_time}:00`);
-    
+    const formattedDate = appointment_date.split("T")[0]; // Asegura el formato YYYY-MM-DD
+    const requestedDate = new Date(`${formattedDate}T${appointment_time}:00`);
+
+    if (isNaN(requestedDate.getTime())) {
+        throw new Error(`Fecha inválida: ${formattedDate} ${appointment_time}`);
+    }
+
     const overlappingAppointments = await prisma.appointment.findMany({
         where: {
-            appointment_date: requestedDate
-        }
+            appointment_date: requestedDate,
+        },
     });
 
-    return overlappingAppointments.length === 0;  // Available if no overlapping appointments.
+    return overlappingAppointments;
 };
+

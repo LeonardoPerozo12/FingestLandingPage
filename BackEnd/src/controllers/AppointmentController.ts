@@ -14,6 +14,13 @@ export const createAppointment = async (req: Request, res: Response): Promise<vo
             res.status(400).json({ message: "Faltan campos requeridos" });
             return;
         }
+        
+        // Verificar disponibilidad
+        const isAvailable = await checkAvailability(appointment_date, appointment_time);
+        if (!isAvailable) {
+            res.status(400).json({ message: "La fecha y hora seleccionadas no están disponibles" });
+            return;
+        }
 
         // Verifica si el cliente ya existe por su email
         let customer = await prisma.customer.findUnique({
@@ -47,13 +54,14 @@ export const createAppointment = async (req: Request, res: Response): Promise<vo
         const formattedTime = new Date(appointment.appointment_time).toISOString().split('T')[1].slice(0, 5);  // Solo la hora (HH:mm)
 
         // Emitir un evento para enviar un correo electrónico con los detalles de la cita
+        /*
         eventEmitter.emit("sendAppointmentEmail", {
             email,
             name,
             appointment_date: formattedDate,
             appointment_time: formattedTime,
         });
-
+        */
 
         // Responder con la cita creada
         res.status(201).json({
@@ -173,7 +181,11 @@ export const deleteAppointment = async (req : Request, res: Response): Promise<v
 
 export const getAppointments = async(req: Request, res: Response): Promise<void> => {
     try{
-        const appointments = await prisma.appointment.findMany();
+        const appointments = await prisma.appointment.findMany({
+            include: {
+                customer: true
+            },
+        });
         res.json(appointments);
     }
     catch(error){
