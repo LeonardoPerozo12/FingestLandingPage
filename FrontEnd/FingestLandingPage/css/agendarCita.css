@@ -1,11 +1,10 @@
-body{
+body {
     margin: 0;
     display: flex;
-    place-items: start;
+    flex-direction: column;
     min-width: 320px;
     width: 100%;
     min-height: 100vh;
-    flex-direction: column;   
 }
 
 .containerBG {
@@ -16,6 +15,7 @@ body{
     width: 100%; /* Ensure the container takes the full width */
     background-color: #f7f7f7;
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex: 1; /* Allow the container to grow and fill the available space */
 }
 
 .form {
@@ -26,20 +26,27 @@ body{
 }
 
 .formControllers {
-
     align-items: flex-start !important;
     display: flex;
     flex-direction: row;
-    gap: 5%;
     align-items: center;
     width: 100%; /* Ensure the form controllers take the full width */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
-.inputsContainer{
-    gap: 10%; /* Espacio entre los campos de entrada */
+
+.personalInfoContainer {
+    max-width: 55%;
+}
+
+.inputsContainer {
+    margin-left: 20px;
+    margin-right: 5px;
+    gap: 8%; /* Espacio entre los campos de entrada */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .inputsContainer,
 .CalendarContainer {
     flex: 1; /* Hace que ambas secciones tengan tamaños iguales */
@@ -49,10 +56,17 @@ body{
 .buttonSection {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el botón horizontalmente */
-    margin-top: 20px; /* Espaciado superior opcional */
 }
 
+.buttonSection {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between; /* Centra el botón horizontalmente */
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px; /* Espaciado superior opcional */
+    gap: 5%;
+}
 .formContainer {
     margin-top: 15vh;
     margin-bottom: 5vh;
@@ -65,6 +79,7 @@ body{
 }
 
 .form .formTitle {
+    margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
     font-family: 'Raleway', sans-serif;
@@ -74,11 +89,22 @@ body{
     color: #172732;
 }
 
+.CalendarContainer {
+    margin-left: 20px;
+    gap: 5%; /* Espacio entre los campos de entrada */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
 .inputsContainer,
 .CalendarContainer {
     margin-bottom: 20px;
 }
-.inputlabel{
+
+.inputlabel {
     max-height: 50px;
     color: #000;
     width: 30%;
@@ -89,11 +115,13 @@ body{
     border: 1px solid #ccc;
     border-radius: 10px;
     font-family: 'Raleway', sans-serif;
+    position: relative;
 }
+
 .input {
     max-height: 50px;
     color: #000;
-    width: 30%;
+    width: 35%;
     padding: 10px;
     background-color: #ECECEC;
     margin-bottom: 10px;
@@ -101,20 +129,18 @@ body{
     border: 1px solid #ccc;
     border-radius: 10px;
     font-family: 'Raleway', sans-serif;
+    font-size: 70%;
 }
 
-.buttonSection {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-left: 5%;
-    margin-right: 5%;
-    gap: 15%;
+.CalendarContainer .input {
+    width: 100%; /* Ensure the inputs take the full width */
+    margin-top: 0; /* Remove top margin */
 }
 
 .submitButton {
     width: 50%;
     padding: 10px;
-    background-color: #091014;
+    background-color: #0b4771;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -122,6 +148,45 @@ body{
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Asegura que los inputs estén al lado izquierdo del calendario */
+.CalendarContainer {
+    margin-left: 0px !important;
+    display: flex; /* Permite alinear los elementos en fila */
+    flex-direction: row; /* Mantiene el calendario y los inputs en la misma línea */
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+    gap: 40px; /* Espacio entre los elementos */
+}
+
+.CalendarFormContainer {
+    margin-top: -11px;
+    display: flex;
+    gap: 25px;
+    flex-direction: row;
+}
+
+@media (min-width: 1465px) {
+    .CalendarFormContainer {
+        margin-top: 37px;
+    }
+}
+
+/* Contenedor de los inputs "Motivo de la cita" y "Hora" */
+.leftInputsContainer {
+    display: flex;
+    flex-direction: column; /* Apila los inputs verticalmente */
+    gap: 20px; /* Espaciado entre los inputs */
+    max-width: 110px; /* Controla el ancho de los inputs */
+    flex: 1; /* Ocupa el espacio necesario */
 }
 
 .clearButton {
@@ -143,4 +208,65 @@ body{
 
 .submitButton:hover {
     background-color: #0d2a43;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .personalInfoContainer{
+        max-width: 95%; /* Full width container */
+        margin-left: -5px;
+    }
+    .formContainer {
+        max-width: 90%;
+    }
+
+    .buttonSection{
+        max-width: 100%;
+    }
+    
+    .form .formTitle {
+        font-size: 30px;
+    }
+
+    .CalendarContainer {
+        flex-direction: column; /* Stack calendar and inputs vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .input {
+        width: 100%; /* Full width inputs */
+    }
+
+    .leftInputsContainer {
+        max-width: 100%; /* Full width container */
+    }
+
+    .inputsContainer {
+        justify-content: center; /* Center the inputs container */
+    }
+
+    .submitButton, .clearButton {
+        width: 100%; /* Full width buttons */
+        padding: 8px; /* Smaller padding */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .personalInfoContainer{
+        max-width: 95%; /* Full width container */
+        margin-left: 0px;
+    }
+    .form .formTitle {
+        font-size: 24px;
+    }
+
+    .input {
+        font-size: 60%;
+    }
+
+    .submitButton, .clearButton {
+        font-size: 14px; /* Smaller font size */
+        padding: 6px; /* Smaller padding */
+    }
 }

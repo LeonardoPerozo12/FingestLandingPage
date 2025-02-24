@@ -59,7 +59,6 @@ const Calendar = ({ selectedDate, onDateChange }) => {
 
     return (
         <div>
-            <h2 className="formTitle">Seleccione dia y hora:</h2>
             <DatePicker
                 selected={selectedDate}
                 onChange={handleDateChange}

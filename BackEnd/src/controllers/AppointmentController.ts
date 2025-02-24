@@ -44,7 +44,7 @@ export const createAppointment = async (req: Request, res: Response): Promise<vo
                 reason_for_appointment,
                 appointment_mode,
                 appointment_date: new Date(appointment_date),  // Asegúrate de que sea un objeto Date
-                appointment_time: new Date(`1970-01-01T${appointment_time}:00Z`),  // Crear el objeto Date con solo la hora
+                appointment_time: new Date(`1970-01-01T${appointment_time}:00`),  // Crear el objeto Date con solo la hora
                 customer_id: customer.customer_id,  // Relacionar la cita con el cliente
             }
         });

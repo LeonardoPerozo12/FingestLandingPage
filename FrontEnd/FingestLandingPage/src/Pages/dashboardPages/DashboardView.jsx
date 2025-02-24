@@ -143,6 +143,8 @@ export function DashboardView() {
                                         <th>Hora</th>
                                         <th>Modo</th>
                                         <th>Razón</th>
+                                        <th>Correo</th>
+                                        <th>Teléfono</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -153,9 +155,11 @@ export function DashboardView() {
                                             <tr key={cita.appointment_id}>
                                                 <td>{cita.appointment_id}</td>
                                                 <td>{format(new Date(cita.appointment_date), "dd/MM/yyyy", { locale: es })}</td>
-                                                <td>{format(new Date(cita.appointment_time), "HH:mm", { locale: es })}</td>
+                                                <td>{cita.appointment_time}</td>
                                                 <td>{cita.appointment_mode ? "Virtual" : "Presencial"}</td>
                                                 <td>{cita.reason_for_appointment}</td>
+                                                <td>{cita.customer.email}</td>
+                                                <td>{cita.customer.phone_number}</td>
                                             </tr>
                                         ))}
                                 </tbody>

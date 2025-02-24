@@ -96,10 +96,12 @@ export function CitasView() {
                             <tr>
                                 <th>ID</th>
                                 <th>Cliente</th>
+                                <th>Correo</th> {/* New column for email */}
+                                <th>Teléfono</th> {/* New column for phone number */}
                                 <th>Modo</th>
                                 <th>Fecha</th>
                                 <th>Hora</th>
-                                <th>Razón</th>
+                                <th>Motivo</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -109,6 +111,8 @@ export function CitasView() {
                                     <tr key={cita.appointment_id}>
                                         <td>{cita.appointment_id}</td>
                                         <td>{cita.customer.name}</td>
+                                        <td>{cita.customer.email}</td> {/* Display email */}
+                                        <td>{cita.customer.phone_number}</td> {/* Display phone number */}
                                         <td>{cita.appointment_mode ? "Presencial" : "Virtual"}</td>
                                         <td>
                                             {format(
@@ -118,11 +122,11 @@ export function CitasView() {
                                             )}
                                         </td>
                                         <td>
-                                            {format(
-                                                new Date(cita.appointment_time),
-                                                "HH:mm",
-                                                { locale: es }
-                                            )}
+                                        {format(
+                                            new Date(cita.appointment_time), 
+                                            "HH:mm", 
+                                            { locale: es }
+                                        )}
                                         </td>
                                         <td>{cita.reason_for_appointment}</td>
                                         <td>
@@ -134,7 +138,7 @@ export function CitasView() {
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan={7} className="text-center">
+                                    <td colSpan={9} className="text-center">
                                         No hay citas pendientes
                                     </td>
                                 </tr>
